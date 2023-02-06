@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolateServices", "HotChocolateServices\HotChocolateServices.csproj", "{D09141C1-68F1-48C5-995C-4E0DF8276811}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F2937EFC-A28F-4BA5-908A-79ACD630ADF1}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D09141C1-68F1-48C5-995C-4E0DF8276811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D09141C1-68F1-48C5-995C-4E0DF8276811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D09141C1-68F1-48C5-995C-4E0DF8276811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D09141C1-68F1-48C5-995C-4E0DF8276811}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9644600-3A34-41BA-9C71-78DD6CB29D77}
+	EndGlobalSection
+EndGlobal
