@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using GreenDonut;
+
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Weknow.HotChocolatePlayground;
 
@@ -16,6 +18,9 @@ public static class RegistrationOfLogic
         this IServiceCollection services)
     {
         services.AddSingleton<IPersonRepository, PersonRepository>();
+        services.AddScoped<PersonBatchDataLoader>();
+        //services.AddSingleton<IBatchScheduler, AutoBatchScheduler>();
+        services.AddSingleton<IBatchScheduler, ImmediateBatchScheduler>();
         return services;
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 
+using GreenDonut;
+
 using HotChocolate;
 
 namespace Weknow.HotChocolatePlayground;
@@ -23,8 +25,18 @@ public class Query
     public Book? GetBook(int index) => GetBooks().Skip(index).Take(1).FirstOrDefault();
 
 
-    public async Task<Person> GetPerson(int id, [Service] IPersonRepository repository)
+    public async Task<Person> GetPerson(
+        int id, 
+        [Service] IPersonRepository repository)
     {
         return await repository.GetPersonById(id);
+    }
+
+    public async Task<Person[]> GetPersonByIds(
+        int[] ids, 
+        [Service] PersonBatchDataLoader repository)
+    {
+        var results = await repository.LoadAsync(ids);
+        return results.ToArray();
     }
 }

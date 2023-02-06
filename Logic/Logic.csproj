@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HotChocolate.Abstractions" Version="12.16.0" />
+    <PackageReference Include="GreenDonut" Version="12.16.0" />
+    <PackageReference Include="HotChocolate" Version="12.16.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.4" />
   </ItemGroup>
 
