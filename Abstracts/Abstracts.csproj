@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <RootNamespace>Weknow.HotChocolatePlayground</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Weknow.TypesUtility.Contracts" Version="1.0.39" />
+    <PackageReference Include="Weknow.TypesUtility.Generation.SrcGen" Version="1.0.39" />
+  </ItemGroup>
+
+</Project>
