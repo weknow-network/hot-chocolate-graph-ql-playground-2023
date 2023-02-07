@@ -1,0 +1,53 @@
+query {
+  a: person(id: 10) {
+    name
+  }
+
+  b: person(id: 11) {
+    name
+  }
+
+  delegateBatch: peopleByIds(ids: [1, 3, 5, 7, 11]) {
+    name
+  }
+
+  batch: personByIds(ids: [1, 3, 5, 7, 11]) {
+    name
+  }
+
+  book(index: 3) {
+    title
+    author {
+      name
+      rank
+    }
+  }
+
+  bookByRanksContext(ids: [2, 4, 6]) {
+    title
+    author {
+      name
+      rank
+    }
+  }
+
+  bookByRanks(ids: [5, 8]) {
+    title
+    author {
+      name
+      rank
+    }
+  }
+
+  bookByRank(id: 6) {
+    title
+    author {
+      name
+      rank
+    }
+  }
+
+  books {
+    title
+  }
+}

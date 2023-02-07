@@ -24,5 +24,4 @@ public class BookByRankDataloader
         var books = await _repository.GetBooksAsync();
         return books.ToLookup(x => x.Author.Rank);
     }
-
 }

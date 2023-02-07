@@ -74,4 +74,19 @@ public class Query
         IReadOnlyList<Book[]> results = await dataLoader.LoadAsync(ids);
         return results;
     }
+
+    public async Task<IReadOnlyList<Book[]>> GetBookByRanksContext(
+        int[] ids,
+        IResolverContext context,
+        [Service] BookByRankDataloader dataLoader)
+    {
+        IDataLoader<int, Book[]> loader = context.GroupDataLoader<int, Book>(async (keys, ct) =>
+        {
+            IReadOnlyList<Book[]> raw = await dataLoader.LoadAsync(keys);
+            // Ugly yet demo the idea
+            return raw.SelectMany(m => m).ToLookup(m => m.Author.Rank);
+        });
+        IReadOnlyList<Book[]> results = await loader.LoadAsync(ids);
+        return results;
+    }
 }
