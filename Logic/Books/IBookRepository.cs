@@ -2,6 +2,6 @@
 {
     public interface IBookRepository
     {
-        Task<Book[]> GetBooksAsync();
+        Task<Book[]> GetBooksAsync(int limit = 400);
     }
 }

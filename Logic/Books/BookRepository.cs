@@ -7,9 +7,9 @@ namespace Weknow.HotChocolatePlayground;
 
 internal class BookRepository : IBookRepository
 {
-    async Task<Book[]> IBookRepository.GetBooksAsync()
+    async Task<Book[]> IBookRepository.GetBooksAsync(int limit)
     {
-        await Task.Delay(400);
+        await Task.Delay(limit);
         var range = Enumerable.Range(0, 100);
         var books = range.Select(i =>
         new Book
@@ -21,7 +21,7 @@ internal class BookRepository : IBookRepository
             {
                 Id = i.ToString(),
                 Name = i % 3 == 0 ? "Jon Skeet" : "Bnaya Eshet",
-                Rank = i % 7 + 3
+                Rank = i % 10 
             }
         });
         return books.ToArray();
