@@ -58,4 +58,20 @@ public class Query
         IReadOnlyList<Person> results = await dataLoader.LoadAsync(ids.ToList());
         return results.ToArray();
     }
+
+    public async Task<Book[]> GetBookByRank(
+        int id,
+        [Service] BookByRankDataloader dataLoader)
+    {
+        Book[] results = await dataLoader.LoadAsync(id);
+        return results;
+    }
+
+    public async Task<IReadOnlyList<Book[]>> GetBookByRanks(
+        int[] ids,
+        [Service] BookByRankDataloader dataLoader)
+    {
+        IReadOnlyList<Book[]> results = await dataLoader.LoadAsync(ids);
+        return results;
+    }
 }

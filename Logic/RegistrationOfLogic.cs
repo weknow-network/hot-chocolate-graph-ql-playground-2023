@@ -17,6 +17,8 @@ public static class RegistrationOfLogic
     public static IServiceCollection RegisterLogic(
         this IServiceCollection services)
     {
+        services.AddSingleton<IBookRepository, BookRepository>();
+        services.AddScoped<BookByRankDataloader>();
         services.AddSingleton<IPersonRepository, PersonRepository>();
         services.AddScoped<IPersonBatchDataLoader, PersonBatchDataLoader >();
         //services.AddSingleton<IBatchScheduler, AutoBatchScheduler>();

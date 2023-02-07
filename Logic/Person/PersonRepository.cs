@@ -5,7 +5,7 @@ using Weknow.HotChocolatePlayground;
 
 namespace Weknow.HotChocolatePlayground;
 
-public class PersonRepository : IPersonRepository
+internal class PersonRepository : IPersonRepository
 {
     async Task<Person> IPersonRepository.GetPersonById(int id, CancellationToken cancellationToken)
     {
