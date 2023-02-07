@@ -18,7 +18,7 @@ public static class RegistrationOfLogic
         this IServiceCollection services)
     {
         services.AddSingleton<IPersonRepository, PersonRepository>();
-        services.AddScoped<PersonBatchDataLoader>();
+        services.AddScoped<IPersonBatchDataLoader, PersonBatchDataLoader >();
         //services.AddSingleton<IBatchScheduler, AutoBatchScheduler>();
         services.AddSingleton<IBatchScheduler, ImmediateBatchScheduler>();
         return services;

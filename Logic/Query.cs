@@ -3,6 +3,8 @@
 using GreenDonut;
 
 using HotChocolate;
+using HotChocolate.Resolvers;
+using HotChocolate.Types;
 
 namespace Weknow.HotChocolatePlayground;
 
@@ -14,7 +16,7 @@ public class Query
         {
             Id = (i * 1000).ToString(),
             Title = $"Book {i}",
-           
+
             Author = new Author
             {
                 Id = i.ToString(),
@@ -26,17 +28,34 @@ public class Query
 
 
     public async Task<Person> GetPerson(
-        int id, 
+        int id,
         [Service] IPersonRepository repository)
     {
         return await repository.GetPersonById(id);
     }
 
     public async Task<Person[]> GetPersonByIds(
-        int[] ids, 
-        [Service] PersonBatchDataLoader repository)
+        int[] ids,
+        [Service] IPersonBatchDataLoader repository)
+        //[Service] PersonBatchDataLoader repository)
     {
         var results = await repository.LoadAsync(ids);
+        return results.ToArray();
+    }
+
+    public async Task<Person[]> GetPeopleByIds(
+        int[] ids,
+        IResolverContext context,
+        [Service] IPersonRepository repository)
+    {
+        IDataLoader<int, Person> dataLoader = context.BatchDataLoader<int, Person>(
+            async (keys, ct) =>
+            {
+                Person[] result = await repository.GetPersonByIds(keys, ct);
+                return result.ToDictionary(m => m.Id);
+
+            });
+        IReadOnlyList<Person> results = await dataLoader.LoadAsync(ids.ToList());
         return results.ToArray();
     }
 }
