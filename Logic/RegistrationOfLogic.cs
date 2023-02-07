@@ -23,6 +23,7 @@ public static class RegistrationOfLogic
         services.AddScoped<IPersonBatchDataLoader, PersonBatchDataLoader >();
         //services.AddSingleton<IBatchScheduler, AutoBatchScheduler>();
         services.AddSingleton<IBatchScheduler, ImmediateBatchScheduler>();
+
         return services;
     }
 }
