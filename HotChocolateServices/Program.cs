@@ -3,11 +3,10 @@ using Weknow.HotChocolatePlayground;
 var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
-services
-    .AddGraphQLServer()
-    .AddQueryType<Query>();
+var requestBuilder = services
+    .AddGraphQLServer();
 
-services.RegisterLogic();
+services.RegisterLogic(requestBuilder);
 
 var app = builder.Build();
 

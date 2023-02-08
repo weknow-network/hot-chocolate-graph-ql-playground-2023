@@ -4,7 +4,7 @@ namespace Weknow.HotChocolatePlayground;
 
 [Nullable]
 
-public record Author
+public record Author: IBookPart
 {
     public required string Id { get; init; }
     public required string Name { get; init; }
