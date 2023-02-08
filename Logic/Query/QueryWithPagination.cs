@@ -1,25 +1,24 @@
-﻿using System;
-using System.Buffers.Text;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Unicode;
-using System.Threading;
-
-using GreenDonut;
-
-using HotChocolate;
+﻿using HotChocolate.Language;
 using HotChocolate.Resolvers;
 using HotChocolate.Types;
 using HotChocolate.Types.Pagination;
-using HotChocolate.Types.Pagination.Extensions;
 
 using Microsoft.Extensions.Logging;
 
+using static Weknow.HotChocolatePlayground.Query;
+
 namespace Weknow.HotChocolatePlayground;
 
-partial class Query
+[ExtendObjectType(OperationType.Query)]
+public class QueryWithPagination
 {
+    private readonly ILogger<Query> _logger;
+
+    public QueryWithPagination(ILogger<Query> logger)
+    {
+        _logger = logger;
+    }
+
     [UsePaging(
         IncludeTotalCount = true,
         MaxPageSize = 20 /* hard limit (will throw when asked for larger size)*/)]
@@ -61,9 +60,9 @@ partial class Query
                             .Select(book => new Edge<Book>(book, book.Id))
                             .ToList();
         var pageInfo = new ConnectionPageInfo(
-                                    true /* not really */, 
-                                    after != null, 
-                                    edges[0].Node.Id, 
+                                    true /* not really */,
+                                    after != null,
+                                    edges[0].Node.Id,
                                     edges[^1].Node.Id);
 
         var connection = new Connection<Book>(edges, pageInfo,

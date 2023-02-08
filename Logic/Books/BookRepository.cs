@@ -1,9 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-
-using Weknow.HotChocolatePlayground;
-
-namespace Weknow.HotChocolatePlayground;
+﻿namespace Weknow.HotChocolatePlayground;
 
 internal class BookRepository : IBookRepository
 {
@@ -21,7 +16,7 @@ internal class BookRepository : IBookRepository
             {
                 Id = i.ToString(),
                 Name = i % 3 == 0 ? "Jon Skeet" : "Bnaya Eshet",
-                Rank = i % 10 
+                Rank = i % 10
             }
         });
         return books.ToArray();

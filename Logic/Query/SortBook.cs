@@ -1,6 +1,6 @@
 ﻿public enum SortBook
 {
     Title,
-    Author, 
+    Author,
     Rank
 }

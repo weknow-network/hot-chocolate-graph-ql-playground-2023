@@ -1,6 +1,4 @@
-﻿using Weknow.TypesUtility;
-
-namespace Weknow.HotChocolatePlayground;
+﻿namespace Weknow.HotChocolatePlayground;
 
 public interface IBookPart
 {

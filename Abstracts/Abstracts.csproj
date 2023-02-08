@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HotChocolate.Analyzers" Version="12.16.0" />
-    <PackageReference Include="HotChocolate.Types.Analyzers" Version="12.16.0" />
+    <PackageReference Include="HotChocolate.Analyzers" Version="13.0.0" />
+    <PackageReference Include="HotChocolate.Types.Analyzers" Version="13.0.0" />
     <PackageReference Include="Weknow.TypesUtility.Contracts" Version="1.0.39" />
     <PackageReference Include="Weknow.TypesUtility.Generation.SrcGen" Version="1.0.39" />
   </ItemGroup>

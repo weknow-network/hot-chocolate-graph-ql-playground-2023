@@ -3,8 +3,8 @@ using GreenDonut;
 
 namespace Weknow.HotChocolatePlayground;
 
-internal class PersonBatchDataLoader : 
-                        BatchDataLoader<int, Person> ,
+public class PersonBatchDataLoader :
+                        BatchDataLoader<int, Person>,
                         IPersonBatchDataLoader
 {
     private readonly IPersonRepository _repository;

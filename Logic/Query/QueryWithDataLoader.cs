@@ -1,19 +1,32 @@
 ﻿using GreenDonut;
 
 using HotChocolate;
+using HotChocolate.Language;
 using HotChocolate.Resolvers;
 using HotChocolate.Types;
 
+using Microsoft.Extensions.Logging;
+
+using static Weknow.HotChocolatePlayground.Query;
+
 namespace Weknow.HotChocolatePlayground;
 
-public partial class Query
+[ExtendObjectType(OperationType.Query)]
+public class QueryWithDataLoader
 {
-    public async Task<Person[]> GetPersonByIds(
-    int[] ids,
-    [Service] IPersonBatchDataLoader repository)
-    //[Service] PersonBatchDataLoader repository)
+    private readonly ILogger<Query> _logger;
+
+    public QueryWithDataLoader(ILogger<Query> logger)
     {
-        var results = await repository.LoadAsync(ids);
+        _logger = logger;
+    }
+
+    public async Task<Person[]> GetPersonByIds(
+        int[] ids,
+        //[Service] IPersonBatchDataLoader dataLoader)
+        [Service] PersonBatchDataLoader dataLoader)
+    {
+        var results = await dataLoader.LoadAsync(ids);
         return results.ToArray();
     }
 

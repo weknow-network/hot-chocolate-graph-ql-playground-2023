@@ -14,3 +14,5 @@ app.MapGraphQL();
 app.MapGet("/", () => "Hello World!");
 
 app.Run();
+
+// Why you should consider using persisted queries with GraphQL: https://www.youtube.com/watch?v=ZZ5PF3_P_r4

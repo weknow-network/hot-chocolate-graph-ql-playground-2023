@@ -1,23 +1,13 @@
-﻿using System;
-using System.Buffers.Text;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Unicode;
-using System.Threading;
-
-using GreenDonut;
-
-using HotChocolate;
-using HotChocolate.Resolvers;
+﻿using HotChocolate;
+using HotChocolate.Language;
 using HotChocolate.Types;
-using HotChocolate.Types.Pagination;
-using HotChocolate.Types.Pagination.Extensions;
 
 using Microsoft.Extensions.Logging;
 
 namespace Weknow.HotChocolatePlayground;
 
-public partial class Query
+[ExtendObjectType(OperationType.Query)]
+public class Query
 {
     private readonly ILogger<Query> _logger;
 
@@ -39,7 +29,7 @@ public partial class Query
 
     #region GetBooksData
 
-    private static IEnumerable<Book> GetBooksData(int count = 100)
+    internal static IEnumerable<Book> GetBooksData(int count = 100)
     {
         return Enumerable.Range(0, count).Select(i =>
                 new Book

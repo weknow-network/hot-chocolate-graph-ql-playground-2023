@@ -1,9 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-
-using Weknow.HotChocolatePlayground;
-
-namespace Weknow.HotChocolatePlayground;
+﻿namespace Weknow.HotChocolatePlayground;
 
 internal class PersonRepository : IPersonRepository
 {

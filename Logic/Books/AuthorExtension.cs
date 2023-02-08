@@ -1,8 +1,6 @@
 ﻿using HotChocolate;
 using HotChocolate.Types;
 
-using Weknow.TypesUtility;
-
 namespace Weknow.HotChocolatePlayground;
 
 /// <summary>

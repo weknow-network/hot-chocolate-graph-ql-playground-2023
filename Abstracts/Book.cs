@@ -3,7 +3,7 @@
 namespace Weknow.HotChocolatePlayground;
 
 [Nullable]
-public record Book: IBookPart
+public record Book : IBookPart
 {
     public required string Id { get; init; }
 
