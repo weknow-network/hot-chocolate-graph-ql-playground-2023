@@ -14,9 +14,9 @@ namespace Weknow.HotChocolatePlayground;
 [ExtendObjectType(OperationType.Query)]
 public class QueryWithDataLoader
 {
-    private readonly ILogger<Query> _logger;
+    private readonly ILogger _logger;
 
-    public QueryWithDataLoader(ILogger<Query> logger)
+    public QueryWithDataLoader(ILogger<QueryWithDataLoader> logger)
     {
         _logger = logger;
     }

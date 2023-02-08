@@ -1,53 +1,164 @@
 query {
-  a: person(id: 10) {
-    name
-  }
+  # a: person(id: 10) {
+  #   name
+  # }
 
-  b: person(id: 11) {
-    name
-  }
+  # b: person(id: 11) {
+  #   name
+  # }
 
-  delegateBatch: peopleByIds(ids: [1, 3, 5, 7, 11]) {
-    name
-  }
+  # delegateBatch: peopleByIds(ids: [1, 3, 5, 7, 11]) {
+  #   name
+  # }
 
-  batch: personByIds(ids: [1, 3, 5, 7, 11]) {
-    name
-  }
+  # batch: personByIds(ids: [1, 3, 5, 7, 11]) {
+  #   name
+  # }
 
-  book(index: 3) {
+  # booksWithFiltering(where: { caption: { contains: "5" } }) {
+  #   title
+  # }
+
+  booksWithSorting(
+    order: [{ title: DESC }]
+  ) {
     title
     author {
-      name
       rank
+      name
     }
   }
 
-  bookByRanksContext(ids: [2, 4, 6]) {
-    title
-    author {
-      name
-      rank
-    }
-  }
+  # booksWithFiltering(
+  #   # order: [{ title: ASC }]
+  #   where: { and: [{ caption: { contains: "5" } }, { rank: { gt: 7 } }] }
+  # ) {
+  #   title
+  #   author {
+  #     rank
+  #     name
+  #   }
+  # }
 
-  bookByRanks(ids: [5, 8]) {
-    title
-    author {
-      name
-      rank
-    }
-  }
+  # booksWithFilteringAndPagination(
+  #   # order: [{ title: ASC }]
+  #   first: 10
+  #   where: { caption: { contains: "5" } }
+    
+  # ) {
+  #   totalCount
+  #   nodes {
+  #     title
+  #   }
+  # }
 
-  bookByRank(id: 6) {
-    title
-    author {
-      name
-      rank
-    }
-  }
+  # booksWithFilter (
+  #   first: 10
+  #   where: {  caption: { contains: "5"}}) {
+  #   totalCount
+  #   nodes {
+  #     title
+  #   }
+  # }
 
-  books {
-    title
-  }
+  # booksWithCustomOffset (skip: 5, take: 7 , sortBy: RANK) {
+  #   totalCount
+  #   items {
+  #     title
+  #     base64
+  #     author {
+  #       name
+  #       rank
+  #       avatarUrl
+  #       base64
+  #     }
+  #   }
+  #   pageInfo {
+  #       hasNextPage
+  #   }
+  # }
+
+  # booksWithOffset (skip: 10, take: 4 ) {
+  #   totalCount
+  #   items {
+  #     title
+  #   }
+  #   pageInfo {
+  #       hasNextPage
+  #   }
+  # }
+
+  # booksWithCustomPagination (
+  #     first: 3
+  #     # after: "1002"
+  #   ) {
+  #     totalCount
+  #   # edges {
+  #   #   node {
+  #   #     title
+  #   #   }
+  #   #   cursor
+  #   # }
+  #   nodes {
+  #     id
+  #     title
+  #   }
+  #   pageInfo {
+  #       endCursor
+  #       hasNextPage
+  #   }
+  # }
+
+  # booksWithPagination(
+  #     first: 3
+  #     # after: "Mg=="
+  #     # before: "m6="
+  #     last: 10
+  #   ) {
+  #   # edges {
+  #   #   node {
+  #   #     title
+  #   #   }
+  #   #   cursor
+  #   # }
+  #   nodes {
+  #     title
+  #   }
+  #   pageInfo {
+  #       endCursor
+  #       hasNextPage
+  #   }
+  # }
+
+  # book(index: 3) {
+  #   title
+  #   author {
+  #     name
+  #     rank
+  #   }
+  # }
+
+  # bookByRanksContext(ids: [2, 4, 6]) {
+  #   title
+  #   author {
+  #     name
+  #     rank
+  #   }
+  # }
+
+  # bookByRanks(ids: [5, 8]) {
+  #   title
+  #   author {
+  #     name
+  #     rank
+  #   }
+  # }
+
+  # bookByRank(id: 6) {
+  #   title
+  #   author {
+  #     name
+  #     rank
+  #   }
+  # }
 }

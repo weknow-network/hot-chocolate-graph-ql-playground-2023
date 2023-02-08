@@ -37,6 +37,9 @@ public static class RegistrationOfLogic
                //.AddMutationType()
                .AddMutationConventions()
                //.AddSubscriptionType()
+               .AddFiltering()
+               .AddSorting()
+               .AddProjections()
                ;
 
         return services;

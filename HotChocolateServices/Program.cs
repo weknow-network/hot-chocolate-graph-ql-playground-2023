@@ -1,9 +1,10 @@
 using Weknow.HotChocolatePlayground;
+using HotChocolate.Execution.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
-var requestBuilder = services
+IRequestExecutorBuilder requestBuilder = services
     .AddGraphQLServer();
 
 services.RegisterLogic(requestBuilder);

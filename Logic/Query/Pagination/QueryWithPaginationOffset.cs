@@ -12,13 +12,19 @@ namespace Weknow.HotChocolatePlayground;
 [ExtendObjectType(OperationType.Query)]
 public class QueryWithPaginationOffset
 {
-    private readonly ILogger<Query> _logger;
+    private readonly ILogger _logger;
 
-    public QueryWithPaginationOffset(ILogger<Query> logger)
+    public QueryWithPaginationOffset(ILogger<QueryWithPaginationOffset> logger)
     {
         _logger = logger;
     }
 
+    /// <summary>
+    /// https://chillicream.com/docs/hotchocolate/v12/fetching-data/filtering
+    /// Note: If you use more than one middleware, keep in mind that ORDER MATTERS. The correct order is UsePaging > UseProjections > UseFiltering > UseSorting
+    /// </summary>
+    /// <param name="repository">The repository.</param>
+    /// <returns></returns>
     [UseOffsetPaging(
         IncludeTotalCount = true,
         MaxPageSize = 20 /* hard limit (will throw when asked for larger size)*/)]

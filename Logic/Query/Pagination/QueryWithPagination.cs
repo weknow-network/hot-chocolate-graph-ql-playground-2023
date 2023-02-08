@@ -12,9 +12,9 @@ namespace Weknow.HotChocolatePlayground;
 [ExtendObjectType(OperationType.Query)]
 public class QueryWithPagination
 {
-    private readonly ILogger<Query> _logger;
+    private readonly ILogger _logger;
 
-    public QueryWithPagination(ILogger<Query> logger)
+    public QueryWithPagination(ILogger<QueryWithPagination> logger)
     {
         _logger = logger;
     }
